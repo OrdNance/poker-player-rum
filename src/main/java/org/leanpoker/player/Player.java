@@ -13,11 +13,11 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement jsonElement) {
-    	Request request = RequestBuilder.buildRequest(jsonElement);
-    	Gambler gambler = getGambler(request, "Rum");
-    	if (request.communitCards.isEmpty()) {
-    		return handleFirstHand(request, gambler);
-    	}
+//    	Request request = RequestBuilder.buildRequest(jsonElement);
+//    	Gambler gambler = getGambler(request, "Rum");
+//    	if (request.communitCards.isEmpty()) {
+//    		return handleFirstHand(request, gambler);
+//    	}
         return 100000;
     }
 
