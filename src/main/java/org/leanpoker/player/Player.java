@@ -16,7 +16,7 @@ public class Player {
     public static int betRequest(JsonElement jsonElement) {
     	for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
 
-            System.out.println(entry.getKey() + " : " + entry.getValue());
+            System.err.println(entry.getKey() + " : " + entry.getValue());
 
         }
         return 100000;
