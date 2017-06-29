@@ -10,14 +10,10 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-    static final String VERSION = "Default Java folding player";
+    static final String VERSION = "V1.03";
 
     public static int betRequest(JsonElement jsonElement) {
-    	Request request = RequestBuilder.buildRequest(jsonElement);
-    	Gambler gambler = getGambler(request, "Rum");
-//    	if (request.communitCards.isEmpty()) {
-//    		return handleFirstHand(request, gambler);
-//    	}
+    	
         return 100000;
     }
 
