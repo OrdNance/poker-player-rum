@@ -1,7 +1,5 @@
 package org.leanpoker.player;
 
-import org.leanpoker.beans.Request;
-import org.leanpoker.beans.RequestBuilder;
 
 import com.google.gson.JsonElement;
 
