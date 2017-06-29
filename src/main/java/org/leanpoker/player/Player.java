@@ -11,14 +11,13 @@ import com.google.gson.JsonElement;
 
 public class Player {
 
-    static final String VERSION = "V1.03";
+    static final String VERSION = "V1.04";
 
     public static int betRequest(JsonElement jsonElement) {
-    	for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
-
-            System.err.println(entry.getKey() + " : " + entry.getValue());
-
-        }
+//    	for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
+//            System.err.println(entry.getKey() + " : " + entry.getValue());
+//        }
+    	System.err.print(jsonElement.toString());
         return 100000;
     }
 
