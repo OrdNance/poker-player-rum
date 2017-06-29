@@ -13,8 +13,15 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement jsonElement) {
-//    	Request request = RequestBuilder.buildRequest(jsonElement);
-//    	Gambler gambler = getGambler(request, "Rum");
+    	Request request = RequestBuilder.buildRequest(jsonElement);
+    	Gambler gambler = getGambler(request, "Rum");
+    	for (Gambler player : request.players) {
+    		int max = 0;
+    		if (!player.equals(gambler)) {
+    			max = max > player.bet ? max : player.bet;
+    		}
+    		return max + 10;
+    	}
 //    	if (request.communitCards.isEmpty()) {
 //    		return handleFirstHand(request, gambler);
 //    	}
