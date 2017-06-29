@@ -23,13 +23,20 @@ public class Player {
 
     private static int handleFirstHand(Request request, Gambler gambler) {
     	if (gambler.cards.size() == 2) {
-    		if (gambler.cards.get(0).rank.equals(gambler.cards.get(1).rank)) {
-    			int rank = RankMapper.map(gambler.cards.get(0).rank);
-    			if (rank > 6) {
-    				return 100000;
-    			}
+    		int rank1 = RankMapper.map(gambler.cards.get(0).rank);
+    		int rank2 = RankMapper.map(gambler.cards.get(1).rank);
+    		String suit1 = gambler.cards.get(0).suit;
+    		String suit2 = gambler.cards.get(1).suit;
+    		if (rank1 == rank2 && rank1 > 6) {
+    			return 100000;
     		}
-    		if (gambler.cards.get(0).suit.equals(gambler.cards.get(1).suit)) {
+    		if (suit1.equals(suit2)) {
+    			return 100000;
+    		}
+    		if (rank1 == (rank2 + 1) || rank2 == (rank1 + 1)) {
+    			return 100000;
+    		}
+    		if (rank1 > 10 || rank2 > 10) {
     			return 100000;
     		}
     	}
