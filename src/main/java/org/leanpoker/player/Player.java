@@ -1,6 +1,11 @@
 package org.leanpoker.player;
 
 
+import org.leanpoker.beans.Gambler;
+import org.leanpoker.beans.RankMapper;
+import org.leanpoker.beans.Request;
+import org.leanpoker.beans.RequestBuilder;
+
 import com.google.gson.JsonElement;
 
 public class Player {
@@ -8,9 +13,41 @@ public class Player {
     static final String VERSION = "Default Java folding player";
 
     public static int betRequest(JsonElement jsonElement) {
+    	Request request = RequestBuilder.buildRequest(jsonElement);
+    	Gambler gambler = getGambler(request, "Rum");
+    	if (request.communitCards.isEmpty()) {
+    		return handleFirstHand(request, gambler);
+    	}
         return 100000;
     }
 
-    public static void showdown(JsonElement game) {
+    private static int handleFirstHand(Request request, Gambler gambler) {
+    	if (gambler.cards.size() == 2) {
+    		if (gambler.cards.get(0).rank.equals(gambler.cards.get(1).rank)) {
+    			int rank = RankMapper.map(gambler.cards.get(0).rank);
+    			if (rank > 6) {
+    				return 100000;
+    			}
+    		}
+    		if (gambler.cards.get(0).suit.equals(gambler.cards.get(1).suit)) {
+    			return 100000;
+    		}
+    	}
+    	return 0;
+	}
+
+	private static Gambler getGambler(Request request, String name) {
+    	for (Gambler gambler : request.players) {
+    		if (gambler.name.equals(name)) {
+    			return gambler;
+    		}
+    	}
+		return null;
+	}
+
+	public static void showdown(JsonElement game) {
+    	
     }
+    
+    
 }
