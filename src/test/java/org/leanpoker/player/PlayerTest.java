@@ -12,9 +12,9 @@ import org.junit.Ignore;
 
 public class PlayerTest {
 
-	public String JSON = "{\"players\":[{\"name\":\"Player 1\",\"stack\":1000, \"status\":\"active\"," +
+	public String JSON = "{\"players\":[{\"name\":\"Rum\",\"stack\":1000, \"status\":\"active\"," +
 	      "\"bet\":0," +
-	      "\"hole_cards\":[]," +
+	      "\"hole_cards\":[{\"rank\": \"5\", \"suit\":\"dimonds\"}, {\"rank\": \"5\", \"suit\":\"dimonds\"}]," +
 	      "\"version\":\"Version name 1\"," + 
 	      "\"id\":0" +
 	    "}," +

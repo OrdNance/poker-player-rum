@@ -1,10 +1,11 @@
 package org.leanpoker.player;
 
 
+import java.util.Map;
+
 import org.leanpoker.beans.Gambler;
 import org.leanpoker.beans.RankMapper;
 import org.leanpoker.beans.Request;
-import org.leanpoker.beans.RequestBuilder;
 
 import com.google.gson.JsonElement;
 
@@ -13,7 +14,11 @@ public class Player {
     static final String VERSION = "V1.03";
 
     public static int betRequest(JsonElement jsonElement) {
-    	
+    	for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
+
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+
+        }
         return 100000;
     }
 
